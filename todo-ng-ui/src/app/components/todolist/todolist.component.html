@@ -1,0 +1,28 @@
+<h1>To-do App</h1>
+
+<ng-container>
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <label for="task">Task: </label>
+        <input id="task" type="text"  [(ngModel)]="newItem.name" name="task">        
+        <input class="button" type="submit" value="Add"/>
+    </form>
+</ng-container>
+
+<ng-container>
+    <table *ngIf="items && items.length > 0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Done</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">            
+                <td>{{ item.id }}</td>   
+                <td>{{ item.isComplete }}</td>            
+                <td>{{ item.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
